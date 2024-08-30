@@ -13,36 +13,40 @@ App desenvolvido como desafio técninco para a vaga de desenvolvedor mobile Flut
 ### Funcionalidades
 1. **Hierarquia de Nós (TreeNodes)**
 
-    **TreeNode**: A estrutura básica de nós que pode conter outros nós filhos, formando uma árvore.
-    **AssetNode**: Uma classe que estende TreeNode, representando ativos com atributos adicionais, como sensorType, status, e isComponent.
-    **LocationNode**: Outra subclasse de TreeNode que representa um local físico na hierarquia.
+    - **TreeNode**: A estrutura básica de nós que pode conter outros nós filhos, formando uma árvore.
+    - **AssetNode**: Uma classe que estende TreeNode, representando ativos com atributos adicionais, como sensorType, status, e isComponent.
+    - **LocationNode**: Outra subclasse de TreeNode que representa um local físico na hierarquia.
+      
     O aplicativo permite a navegação por essa estrutura, exibindo e expandindo os nós conforme o usuário interage.
 
 2. **Filtros de Nós**
 
    **Filtragem por Nome**: Os usuários podem buscar nós pelo nome. O filtro é aplicado de forma recursiva, garantindo que toda a hierarquia seja verificada e mantida conforme o filtro é aplicado.
-    **Filtragem por Atributos Específicos**:
-        Filtro de **Status**: Filtro baseado no status do nó, sendo alert o critério principal.
-        Filtro de **SensorType**: Filtragem dos nós com base no tipo de sensor, com foco em energy.
+   
+    **Filtragem por Atributos Específicos:**
+   
+   - Filtro de **Status**: Filtro baseado no status do nó, sendo alert o critério principal.
+   - Filtro de **SensorType**: Filtragem dos nós com base no tipo de sensor, com foco em energy.
 
     Os filtros são combináveis e respeitam a hierarquia original dos nós, mantendo a estrutura intacta enquanto o conteúdo filtrado é exibido.
 
-3. **Manipulação de Estados com BLoC**
+4. **Manipulação de Estados com BLoC**
 
     O gerenciamento de estados no aplicativo é feito com o uso do BLoC. Eventos e estados são utilizados para:
-        **Carregar os nós:** Quando o aplicativo é iniciado, os nós são buscados a partir de uma fonte de dados remota e organizados em uma estrutura hierárquica.
-        **Filtrar nós:** A filtragem é implementada dentro do evento FilterNodesEvent, que processa a query de busca e os filtros selecionados (status e sensorType).
-        **Expandir/Contrair Nós:** A expansão dos nós é controlada por um Cubit, que gerencia o estado de abertura (isOpen) de cada nó.
+   
+   - **Carregar os nós:** Quando o aplicativo é iniciado, os nós são buscados a partir de uma fonte de dados remota e organizados em uma estrutura hierárquica.
+   - **Filtrar nós:** A filtragem é implementada dentro do evento FilterNodesEvent, que processa a query de busca e os filtros selecionados (status e sensorType).
+   - **Expandir/Contrair Nós:** A expansão dos nós é controlada por um Cubit, que gerencia o estado de abertura (isOpen) de cada nó.
 
-4. **Busca Recursiva**
+6. **Busca Recursiva**
 
-A lógica de busca recursiva garante que, ao aplicar filtros ou buscas, toda a árvore de nós seja percorrida, e nós relevantes sejam mantidos na exibição. Essa abordagem também permite manter a relação pai-filho intacta, mesmo quando apenas os filhos correspondem ao critério de busca.
+   A lógica de busca recursiva garante que, ao aplicar filtros ou buscas, toda a árvore de nós seja percorrida, e nós relevantes sejam mantidos na exibição. Essa abordagem também permite manter a relação pai-filho intacta, mesmo quando apenas os filhos correspondem ao critério de busca.
 
 5. **Interface do Usuário (UI)**
 
-    **Botões de Filtro**: Há botões específicos na interface que permitem que o usuário aplique filtros de forma rápida, como "Sensor de Energia" e "Crítico".
-    **Indicadores de Expansão:** A UI mostra um ícone para indicar se um nó pode ser expandido, facilitando a navegação entre os nós.
-    **Indicadores de Alerta:** Ícones especiais são exibidos ao lado dos nós com status de alert.
+    - **Botões de Filtro**: Há botões específicos na interface que permitem que o usuário aplique filtros de forma rápida, como "Sensor de Energia" e "Crítico".
+    - **Indicadores de Expansão:** A UI mostra um ícone para indicar se um nó pode ser expandido, facilitando a navegação entre os nós.
+    - **Indicadores de Alerta:** Ícones especiais são exibidos ao lado dos nós com status de alert.
 
 ### Como Usar
 
@@ -54,7 +58,7 @@ Este comando baixará todas as depêndencias externas utilizadas para o desenvol
 
 Executar o comando no terminal:
 ```bash
-dart run build_runner watch
+dart run build_runner build
 ```
 Isso irá instalar os mocks nescessários para rodar os testes do projeto.
 
@@ -63,9 +67,7 @@ Caso apareça algum conflito como a imagem abaixo:
 
 Pressione a tecla 1
 
-Ao finalizar a atualização e download dos mocks, ainda selecionando o terminal pressione as teclas ```CTR + C``` para finalizar a execução do comando acima.
-
-Foram feitos no total 20 testes para garantir a usabilidade e funcionamento do aplicativo, eles podem ser encontrados na pasta ```/test``` e acompanham a arquitetura do projeto.
+Foram desenvolvidos no total 20 testes para garantir a usabilidade e funcionamento do aplicativo, eles podem ser encontrados na pasta ```/test``` e acompanham a arquitetura do projeto.
 Para rodar todos os testes e verificar se o aplicativo encontra-se funcionando como o esperado rode o comando no terminal:
 ```bash
 flutter test
@@ -94,7 +96,9 @@ A Clean Architecture prioriza a independência da lógica de negócios central d
 
 ### Considerações finais
 Sou extremamente grato pela oportunidade de participar desse processo seletivo, acredito que tenho as capacidades técnicas para compor o time de mobile, também sou dedicado, esforçado, comunicativo e proativo.
+
 Ficaria honradíssimo em receber um retorno positivo sobre este desafio técnico que fiz com tanto carinho e dedicação, estou disponível para qualquer conversa e melhoria.
+
 Sei que preciso aprender mais coisas e melhorar em alguns aspectos, mas saiba que sempre estarei disposto a ouvir, aprender, correr atrás daquilo que não sei e de me comunicar caso fique preso com alguma dívida técnica.
 
 Muito obrigado pela atenção. 
